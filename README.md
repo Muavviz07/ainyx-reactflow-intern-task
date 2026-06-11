@@ -102,3 +102,29 @@ Opens on `http://localhost:5173`
 ---
 
 ## Project Structure
+
+src/
+├── components/
+│   ├── Layout/
+│   │   ├── TopBar.tsx          # Header: title, app selector, fit view, error toggle
+│   │   ├── Sidebar.tsx         # Left nav: icon buttons
+│   │   └── RightPanel.tsx      # Inspector panel (desktop/mobile drawer)
+│   ├── Canvas/
+│   │   ├── Graph.tsx           # ReactFlow canvas + interactions
+│   │   └── CustomNode.tsx      # Custom node render with status/load
+│   └── Inspector/
+│       ├── Inspector.tsx       # Inspector container
+│       ├── ConfigTab.tsx       # Node name, description
+│       └── RuntimeTab.tsx      # Slider, numeric input (synced)
+├── hooks/
+│   ├── useApps.ts             # TanStack Query: GET /api/apps
+│   └── useGraph.ts            # TanStack Query: GET /api/apps/:appId/graph
+├── store/
+│   └── appStore.ts            # Zustand: selected app/node, mobile panel, active tab
+├── mocks/
+│   └── handlers.ts            # Mock API endpoints with latency
+├── types/
+│   └── index.ts               # TypeScript interfaces (App, Node, Edge, Status, etc.)
+├── App.tsx                    # Root component (provider setup, layout)
+├── main.tsx                   # Entry point
+└── index.css                  # Base styles, Tailwind, dark mode config
